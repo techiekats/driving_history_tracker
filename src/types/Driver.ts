@@ -3,12 +3,12 @@ import ILogger from "./ILogger";
 import Time from "./Time";
 
 export default class Driver implements IDriver {
-    _totalDistance: number = 0;
-    _totalTime: number = 0;
-    _logger!: ILogger;
-    _name!: string;
-    _speedLowerBound = 5;
-    _speedUpperBound = 100;
+    private _totalDistance: number = 0;
+    private _totalTime: number = 0;
+    private _logger!: ILogger;
+    private _name!: string;
+    private _speedLowerBound = 5;
+    private _speedUpperBound = 100;
     constructor(name: string, logger: ILogger) {
         this._name = name; 
         this._logger = logger;        

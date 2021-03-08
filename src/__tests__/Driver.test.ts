@@ -68,3 +68,17 @@ test('returns correct average speed', () => {
     expect(d.GetAverageSpeed()).toBe(175*60/120);
     expect(l.warningCalled).toBe(1);
 });
+test('returns correct empty state string', () => {
+    const l = new MockLogger();
+    const d = new Driver("K", l);   
+    d.RegisterTrip(new Time(2,0), new Time(2, 59), 100);
+    expect(d.ToString()).toBe('K: 0 miles');
+    expect(l.warningCalled).toBe(1);
+});
+test('returns correct non empty state string', () => {
+    const l = new MockLogger();
+    const d = new Driver("K", l);   
+    d.RegisterTrip(new Time(2,0), new Time(3, 0), 100);
+    expect(d.ToString()).toBe('K: 100 miles @ 100 mph');
+    expect(l.warningCalled).toBe(0);
+});
