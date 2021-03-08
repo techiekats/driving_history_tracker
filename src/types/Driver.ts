@@ -1,4 +1,8 @@
-class Driver implements IDriver {
+import IDriver from "./IDriver";
+import ILogger from "./ILogger";
+import Time from "./Time";
+
+export default class Driver implements IDriver {
     _totalDistance: number = 0;
     _totalTime: number = 0;
     _logger!: ILogger;

@@ -1,3 +1,5 @@
+import ILogger from "../../types/ILogger";
+
 class MockLogger implements ILogger {
     private _warningCalled = 0;
     public get warningCalled() {

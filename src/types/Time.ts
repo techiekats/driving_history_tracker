@@ -1,4 +1,4 @@
-class Time
+export default class Time
 {
     private _hours!: number;
     public get hours(): number {

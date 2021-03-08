@@ -1,4 +1,9 @@
-class DrivingInsuranceTracker { 
+import IDriver from "./IDriver";
+import IDriverFactory from "./IDriverFactory";
+import ILogger from "./ILogger";
+import Time from "./Time";
+
+export default class DrivingInsuranceTracker { 
     _entries!: Map<string, IDriver>;
     _factory!: IDriverFactory;
     _logger!: ILogger;

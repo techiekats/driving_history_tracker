@@ -1,4 +1,6 @@
-interface IDriver {
+import Time from "./Time";
+
+export default interface IDriver {
     GetName () : string;
     GetAverageSpeed() : number;
     GetTotalDistanceTravelled () : number;

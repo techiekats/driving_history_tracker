@@ -1,3 +1,7 @@
+import DriverFactory from "./types/DriverFactory";
+import DrivingInsuranceTracker from "./types/DrivingInsuranceTracker";
+import Logger from "./types/Logger";
+
 main(process.argv);
 
 //This does not need testing. It is simply parsing the input.

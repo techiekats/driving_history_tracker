@@ -1,4 +1,6 @@
-class Logger implements ILogger {
+import ILogger from "./ILogger";
+
+export default class Logger implements ILogger {
     LogWarning(title: string, message?: string): void {
         console.log(title);
         if (!!message) {
