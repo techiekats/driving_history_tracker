@@ -26,7 +26,7 @@ export default class DrivingInsuranceTracker {
         records.forEach(x=>{
             let [operation, driver] = x.split(" ");
             if (operation == "Driver") {
-                this._entries.set(driver, this._factory.CreateDriver(driver));
+                this._entries.set(driver, this._factory.CreateDriver(driver, this._logger));
             }
             else if (operation == "Trip"){
                 let [p, q, start, end, dist] = x.split("");
