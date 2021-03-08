@@ -21,7 +21,7 @@ export default class Driver implements IDriver {
     }
     GetAverageSpeed(): number {
         if (this._totalTime > 0) {
-            return this._totalDistance / this._totalTime;
+            return this._totalDistance * 60/ this._totalTime;
         }
         else {
             this._logger.LogWarning("Average speed of 0 records returned as 0");
@@ -31,9 +31,9 @@ export default class Driver implements IDriver {
     RegisterTrip(start: Time, end: Time, distance: number): void {
         const timeOfJourney = end.GetDifferenceInMinutes(start);
         const speed = distance * 60 / timeOfJourney;
-        if (speed > this._speedLowerBound && speed < this._speedUpperBound) {
+        if (speed >= this._speedLowerBound && speed <= this._speedUpperBound) {
             this._totalDistance += distance;
-            this._totalTime += this._totalTime;
+            this._totalTime += timeOfJourney;
         }
         else {
             this._logger.LogWarning("Trip was discarded because it was an extreme point");

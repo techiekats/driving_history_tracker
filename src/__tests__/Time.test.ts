@@ -11,6 +11,12 @@ import Time from "../types/Time";
     expect(t2.GetDifferenceInMinutes(t1)).toBe(30);
   });
 
+  test('difference in times - one hour', () => {
+    const t1 = new Time(2, 0);
+    const t2 = new Time(3, 0);
+    expect(t2.GetDifferenceInMinutes(t1)).toBe(60);
+  });
+
   test('difference in times - minutes greater but hours smaller', () => {
     const t1 = new Time(2, 30);
     const t2 = new Time(4, 0);
