@@ -1,5 +1,5 @@
 interface IDriver {
     GetAverageSpeed () : number;
-    RegisterTrip (start:Date, end:Date, distance: number) : void;
+    RegisterTrip (start:Time, end:Time, distance: number) : void;
     ToString(): string;
 }
