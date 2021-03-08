@@ -8,12 +8,12 @@ class DrivingInsuranceTracker {
         this._logger = logger;
         this._entries = new Map();
     }
-    GetInsuranceReport (records: string[]) : string
+    GetInsuranceReport (records: string[]) : IDriver[]
     {
-        let result : string = "";
+        let result : IDriver[] = [];
         this.PopulateEntries(records);
         if (this._entries.size > 0) {
-            result = GetDrivingSummary();
+            result = this.GetDrivingSummary();
         }
         return result;
     }
@@ -34,8 +34,9 @@ class DrivingInsuranceTracker {
             }
          });
     }
-    private GetDrivingSummary (): string {
-        
-        return "";
+    private GetDrivingSummary (): IDriver[] {
+        let result: IDriver[] = [];
+        result.sort((a,b) => a.GetTotalDistanceTravelled() - b.GetTotalDistanceTravelled());
+        return result;
     }
 }

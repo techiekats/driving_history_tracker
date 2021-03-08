@@ -9,6 +9,12 @@ class Driver implements IDriver {
         this._name = name; 
         this._logger = logger;        
     }
+    GetTotalDistanceTravelled(): number {
+        return this._totalDistance;
+    }
+    GetName () : string {
+        return this._name;
+    }
     GetAverageSpeed(): number {
         if (this._totalTime > 0) {
             return this._totalDistance / this._totalTime;
@@ -30,7 +36,10 @@ class Driver implements IDriver {
         }
     }
     ToString(): string {
-        return `Driver ${this._name} has covered a distance of ${this._totalDistance} miles in ${this._totalTime} hours`;
+        if (this._totalDistance > 0) 
+            return `${this._name}: ${this._totalDistance} miles @ ${this.GetAverageSpeed()} mph`;
+        else
+            return `${this._name}: 0 miles`
     }
     
 }
