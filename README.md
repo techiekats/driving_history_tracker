@@ -33,27 +33,15 @@ Instructions to run
 
 * Open root folder in VS Code and run following commands in Terminal
 
-`code()`
-
-npm install
-npm run build
+`npm install`
+`npm run build`
 
 * To execute tests
 
-`code()`
-
-npx jest
-
-```javascript
-```
+`npx jest`
 
 * Sample runs
 
-`code()`
-node lib/index.js "Driver Dan" "Driver Lauren" "Driver Kumi" "Trip Dan 07:15 07:45 17.3" "Trip Dan 06:12 06:32 21.8" "Trip Lauren 12:01 13:16 42.0"
+`node lib/index.js "Driver Dan" "Driver Lauren" "Driver Kumi" "Trip Dan 07:15 07:45 17.3" "Trip Dan 06:12 06:32 21.8" "Trip Lauren 12:01 13:16 42.0"`
 
-`code()`
-node lib/index.js "Driver Jimmy" "Driver Steven" "Driver Trevor" "Trip Jimmy 07:15 07:45 17.3" "Trip Steven 06:12 06:32 21.8" "Trip Trevor 12:01 13:16 42.0" "Trip Trevor 12:01 13:16 42.0" "Trip Steven 06:12 08:12 100"
-
-```javascript
-```
+`node lib/index.js "Driver Jimmy" "Driver Steven" "Driver Trevor" "Trip Jimmy 07:15 07:45 17.3" "Trip Steven 06:12 06:32 21.8" "Trip Trevor 12:01 13:16 42.0" "Trip Trevor 12:01 13:16 42.0" "Trip Steven 06:12 08:12 100"`
