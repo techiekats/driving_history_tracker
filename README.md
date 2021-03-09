@@ -34,6 +34,7 @@ Instructions to run
 * Open root folder in VS Code and run following commands in Terminal
 
 `npm install`
+
 `npm run build`
 
 * To execute tests
