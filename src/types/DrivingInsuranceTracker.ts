@@ -37,7 +37,7 @@ export default class DrivingInsuranceTracker {
     GetDrivingSummary (): IDriver[] {
         let result: IDriver[] = [];
         this._entries.forEach((v,k,m)=> result.push(v));
-        result.sort((a,b) => a.GetTotalDistanceTravelled() - b.GetTotalDistanceTravelled());
+        result.sort((a,b) => b.GetTotalDistanceTravelled() - a.GetTotalDistanceTravelled());
         return result;
     }
 }
