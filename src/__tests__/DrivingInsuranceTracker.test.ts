@@ -9,7 +9,9 @@ test('Creates driver objects', () => {
     const d = new DrivingInsuranceTracker(f, l);
     const inputs = ['Driver K', 'Trip K 08:30 09:30 67'];
     d.PopulateEntries(inputs);
+    const driver: MockDriver = d.entries.get('K') as MockDriver;
     expect(f.callCounter).toBe(1);
+    expect(driver._registerTripCallCounter).toBe(1);
   });
 
   test('Calls register trip with the correct parameters', () => {
@@ -56,7 +58,7 @@ test('Creates driver objects', () => {
     const l = new MockLogger();
     const f = new MockDriverFactory();
     const d = new DrivingInsuranceTracker(f, l);
-    const inputs = ['Driver K', 'Trip K 08:30 09:31 67', 'Driver H', 'Trip H 08:35 09:31 67'];
+    const inputs = ['Driver K', 'Trip K 08:30 09:31 67', 'Driver H', 'Trip H 08:35 09:31 67','Trip H 08:35 09:31 67'];
     d.PopulateEntries(inputs);
     let result = d.GetDrivingSummary();
     expect(result.length).toBe(2);

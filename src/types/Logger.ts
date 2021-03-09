@@ -2,9 +2,11 @@ import ILogger from "./ILogger";
 
 export default class Logger implements ILogger {
     LogWarning(title: string, message?: string): void {
-        console.log(title);
         if (!!message) {
-            console.log(message);
+            console.log(`${title} : ${message}`);
+        }
+        else {
+            console.log(title);
         }
     }
     LogException(title: string, exception: string): void {
