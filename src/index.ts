@@ -4,7 +4,6 @@ import Logger from "./types/Logger";
 
 main(process.argv);
 
-//This does not need testing. It is simply parsing the input.
 function main(argv: string[]) {
     console.log(argv.length);
     console.log(argv);
@@ -13,7 +12,8 @@ function main(argv: string[]) {
         new DriverFactory(),
         logger
     );
-    tracker.GetInsuranceReport(argv).forEach(x=> console.log(x.ToString()));
+    tracker.PopulateEntries(argv);
+    tracker.GetDrivingSummary().forEach(x=> console.log(x.ToString()));
 
 }
 
