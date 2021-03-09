@@ -25,6 +25,7 @@ Overall approach
 
 * Technology choice
   * TypeScript - static typing for C# with flexibility of JavaScript
+  * src/ is folder for all code, per TypeScript conventions
   * Jest - Popular unit testing framework
 
 Instructions to run
@@ -43,6 +44,9 @@ npm run build
 
 npx jest
 
+```javascript
+```
+
 * Sample runs
 
 `code()`
@@ -50,3 +54,6 @@ node lib/index.js "Driver Dan" "Driver Lauren" "Driver Kumi" "Trip Dan 07:15 07:
 
 `code()`
 node lib/index.js "Driver Jimmy" "Driver Steven" "Driver Trevor" "Trip Jimmy 07:15 07:45 17.3" "Trip Steven 06:12 06:32 21.8" "Trip Trevor 12:01 13:16 42.0" "Trip Trevor 12:01 13:16 42.0" "Trip Steven 06:12 08:12 100"
+
+```javascript
+```
