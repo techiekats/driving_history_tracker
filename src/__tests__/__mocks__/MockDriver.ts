@@ -9,6 +9,9 @@ export default class MockDriver implements IDriver {
     _toStringCallCounter = 0;
     _averageSpeed = 0;
     _totalDistance = 0;
+    _recentTripStart: Time | undefined;
+    _recentTripEnd: Time | undefined;
+    _recentTripDistance: number | undefined;
     GetName(): string {
         this._getNameCallCounter +=1;
         return "";
@@ -22,6 +25,9 @@ export default class MockDriver implements IDriver {
         return this._totalDistance;
     }
     RegisterTrip(start: Time, end: Time, distance: number): void {
+        this._recentTripStart = start;
+        this._recentTripEnd = end;
+        this._recentTripDistance = distance;
         this._registerTripCallCounter += 1;
     }
     ToString(): string {
