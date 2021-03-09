@@ -3,7 +3,7 @@ import IDriverFactory from "./IDriverFactory";
 import ILogger from "./ILogger";
 import Time from "./Time";
 
-export default class DrivingInsuranceTracker { 
+export default class DrivingHistoryTracker { 
     private _entries!: Map<string, IDriver>;
     public get entries(): Map<string, IDriver> {
         return this._entries;

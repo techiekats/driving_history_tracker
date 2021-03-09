@@ -1,12 +1,12 @@
 import DriverFactory from "./types/DriverFactory";
-import DrivingInsuranceTracker from "./types/DrivingInsuranceTracker";
+import DrivingHistoryTracker from "./types/DrivingHistoryTracker";
 import Logger from "./types/Logger";
 
 main(process.argv);
 
 function main(argv: string[]) {    
     let logger = new Logger();
-    var tracker = new DrivingInsuranceTracker(
+    var tracker = new DrivingHistoryTracker(
         new DriverFactory(),
         logger
     );
