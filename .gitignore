@@ -1,1 +1,17 @@
 node_modules
+lib/index.js
+lib/__tests__/Driver.test.js
+lib/__tests__/DrivingInsuranceTracker.test.js
+lib/__tests__/Time.test.js
+lib/__tests__/__mocks__/MockDriver.js
+lib/__tests__/__mocks__/MockDriverFactory.js
+lib/__tests__/__mocks__/MockLogger.js
+lib/types/Driver.js
+lib/types/DriverFactory.js
+lib/types/DrivingHistoryTracker.js
+lib/types/IDriver.js
+lib/types/IDriverFactory.js
+lib/types/ILogger.js
+lib/types/Logger.js
+lib/types/Time.js
+package-lock.json
