@@ -10,25 +10,25 @@ export default class MockDriver implements IDriver {
     _recentTripStart: Time | undefined;
     _recentTripEnd: Time | undefined;
     _recentTripDistance: number | undefined;
-    GetName(): string {
+    getName(): string {
         this._getNameCallCounter +=1;
         return "";
     }
-    GetAverageSpeed(): number {
+    getAverageSpeed(): number {
         this._getAverageSpeedCallCounter +=1;
         return Math.random() * 1000;
     }
-    GetTotalDistanceTravelled(): number {
+    getTotalDistanceTravelled(): number {
         this._getTotalDistanceCallCounter += 1;
         return Math.random() * 1000;
     }
-    RegisterTrip(start: Time, end: Time, distance: number): void {
+    registerTrip(start: Time, end: Time, distance: number): void {
         this._recentTripStart = start;
         this._recentTripEnd = end;
         this._recentTripDistance = distance;
         this._registerTripCallCounter += 1;
     }
-    ToString(): string {
+    toString(): string {
         this._toStringCallCounter +=1;
         return "";
     }

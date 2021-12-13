@@ -1,7 +1,7 @@
 import ILogger from "./ILogger";
 
 export default class Logger implements ILogger {
-    LogWarning(title: string, message?: string): void {
+    logWarning(title: string, message?: string): void {
         if (!!message) {
             console.log(`${title} : ${message}`);
         }
@@ -9,7 +9,7 @@ export default class Logger implements ILogger {
             console.log(title);
         }
     }
-    LogException(title: string, exception: string): void {
+    logException(title: string, exception: string): void {
         console.log(title);
         console.log(exception);
     }

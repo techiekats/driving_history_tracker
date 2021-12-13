@@ -15,7 +15,7 @@ export default class Time
         this._minutes = minute;
     }
 
-    public GetDifferenceInMinutes (t: Time) : number {
+    public getDifferenceInMinutes (t: Time) : number {
         let t1 = t.hours * 60 + t.minutes;
         let t2 = this._hours * 60 + this.minutes;
         return Math.abs(t2-t1);

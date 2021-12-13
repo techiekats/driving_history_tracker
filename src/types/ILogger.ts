@@ -1,4 +1,4 @@
 export default interface ILogger {
-    LogWarning (title: string, message? : string): void;
-    LogException (title: string, exception : string) : void;
+    logWarning (title: string, message? : string): void;
+    logException (title: string, exception : string) : void;
 }

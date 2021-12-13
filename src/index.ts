@@ -12,7 +12,7 @@ function main(argv: string[]) {
     );
     tracker.PopulateEntries(argv);
     console.log('----------------------------------');
-    tracker.GetDrivingSummary().forEach(x=> console.log(x.ToString()));
+    tracker.GetDrivingSummary().forEach(x=> console.log(x.toString()));
     console.log('----------------------------------');
 }
 

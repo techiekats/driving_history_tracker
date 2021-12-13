@@ -9,7 +9,7 @@ export default class MockDriverFactory implements IDriverFactory{
         return this._callCounter;
     }
     
-    CreateDriver(name: string, logger: ILogger): IDriver {
+    createDriver(name: string, logger: ILogger): IDriver {
         this._callCounter+= 1;
         return new MockDriver();
     }

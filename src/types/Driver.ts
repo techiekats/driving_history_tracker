@@ -13,35 +13,35 @@ export default class Driver implements IDriver {
         this._name = name; 
         this._logger = logger;        
     }
-    GetTotalDistanceTravelled(): number {
+    getTotalDistanceTravelled(): number {
         return this._totalDistance;
     }
-    GetName () : string {
+    getName () : string {
         return this._name;
     }
-    GetAverageSpeed(): number {
+    getAverageSpeed(): number {
         if (this._totalTime > 0) {
             return this._totalDistance * 60/ this._totalTime;
         }
         else {
-            this._logger.LogWarning("Average speed of 0 records returned as 0");
+            this._logger.logWarning("Average speed of 0 records returned as 0");
             return 0;
         }
     }
-    RegisterTrip(start: Time, end: Time, distance: number): void {
-        const timeOfJourney = end.GetDifferenceInMinutes(start);
+    registerTrip(start: Time, end: Time, distance: number): void {
+        const timeOfJourney = end.getDifferenceInMinutes(start);
         const speed = distance * 60 / timeOfJourney;
         if (speed >= this._speedLowerBound && speed <= this._speedUpperBound) {
             this._totalDistance += distance;
             this._totalTime += timeOfJourney;
         }
         else {
-            this._logger.LogWarning("Trip was discarded because it was an extreme point");
+            this._logger.logWarning("Trip was discarded because it was an extreme point");
         }
     }
-    ToString(): string {
+    toString(): string {
         if (this._totalDistance > 0) 
-            return `${this._name}: ${this._totalDistance} miles @ ${this.GetAverageSpeed()} mph`;
+            return `${this._name}: ${this._totalDistance} miles @ ${this.getAverageSpeed()} mph`;
         else
             return `${this._name}: 0 miles`
     }

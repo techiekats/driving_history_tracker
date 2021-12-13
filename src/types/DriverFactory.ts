@@ -4,7 +4,7 @@ import IDriverFactory from "./IDriverFactory";
 import ILogger from "./ILogger";
 
 export default class DriverFactory implements IDriverFactory {
-    CreateDriver(name: string, logger: ILogger): IDriver {
+    createDriver(name: string, logger: ILogger): IDriver {
         return new Driver(name, logger);
     }    
 }
