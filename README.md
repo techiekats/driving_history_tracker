@@ -14,7 +14,9 @@ Overall approach
 * State of class can be updated only via methods
 
 * Design constructors such that the possibility of invalid object states is reduced
-  * E.g. Driver.ts marks name and logger as readonly fields. Thus, they can be set only once at construction and never modified 
+  * E.g. Driver.ts marks name and logger as readonly fields. Thus, they can be set only once at construction and never modified
+
+* Singleton for DrivingHistoryTracker
 
 * Single responsibility principle
   * DrivingHistoryTracker - acts as high level co-ordinator, keeps record of drivers and performs reporting. Outsources construction of Driver objects to DriverFactory
@@ -22,7 +24,7 @@ Overall approach
   * DriverFactory - Constructs Driver instances
   * Time - simple structure that represents time
   * Mock objects - Implement the interfaces used by their counterpart classes
-  * Logger - global logger object
+  * Logger - global logger object. Uses console.log here but could be used to send logs to a text file or database after formatting
 
 * Technology choice
   * TypeScript - static typing for C# with flexibility of JavaScript

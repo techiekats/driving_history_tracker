@@ -1,18 +1,14 @@
-import DriverFactory from "./types/DriverFactory";
-import DrivingHistoryTracker from "./types/DrivingHistoryTracker";
-import Logger from "./types/Logger";
+import DriverReportGenerator from "./types/Driver";
+import DrivingHistoryReader from "./types/DrivingHistoryReader";
 
 main(process.argv);
 
 function main(argv: string[]) {    
-    let logger = new Logger();
-    var tracker = new DrivingHistoryTracker(
-        new DriverFactory(),
-        logger
-    );
+    var tracker = new DrivingHistoryReader();
     tracker.populateEntries(argv);
     console.log('----------------------------------');
-    tracker.getDrivingSummary().forEach(x=> console.log(x.toString()));
+    let reportGenerator = new DriverReportGenerator();
+    reportGenerator.getDrivingSummary(tracker.entries).forEach(x=> console.log(x));    
     console.log('----------------------------------');
 }
 
