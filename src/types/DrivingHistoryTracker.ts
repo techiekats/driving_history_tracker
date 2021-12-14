@@ -4,12 +4,12 @@ import ILogger from "./ILogger";
 import Time from "./Time";
 
 export default class DrivingHistoryTracker { 
-    #_entries!: Map<string, IDriver>;
+    readonly #_entries!: Map<string, IDriver>;
     public get entries(): Map<string, IDriver> {
         return this.#_entries;
     }
-    #_factory!: IDriverFactory;
-    #_logger!: ILogger;
+    readonly #_factory!: IDriverFactory;
+    readonly #_logger!: ILogger;
       
     constructor(factory: IDriverFactory, logger: ILogger) {   
         this.#_factory = factory;
@@ -17,7 +17,7 @@ export default class DrivingHistoryTracker {
         this.#_entries = new Map();
     }
     
-    PopulateEntries (records: string[]) : void {
+    populateEntries (records: string[]) : void {
         records.forEach(x=>{
             let [operation, driver] = x.split(" ");
             if (operation == "Driver") {
@@ -34,7 +34,7 @@ export default class DrivingHistoryTracker {
             }
          });
     }
-    GetDrivingSummary (): IDriver[] {
+    getDrivingSummary (): IDriver[] {
         let result: IDriver[] = [];
         this.#_entries.forEach((v,k,m)=> result.push(v));
         result.sort((a,b) => b.getTotalDistanceTravelled() - a.getTotalDistanceTravelled());

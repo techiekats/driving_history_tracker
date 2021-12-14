@@ -5,8 +5,8 @@ import Time from "./Time";
 export default class Driver implements IDriver {
     #_totalDistance: number = 0;
     #_totalTime: number = 0;
-    #_logger!: ILogger;
-    #_name!: string;
+    readonly #_logger!: ILogger;
+    readonly #_name!: string;
     #_speedLowerBound = 5;
     #_speedUpperBound = 100;
     constructor(name: string, logger: ILogger) {

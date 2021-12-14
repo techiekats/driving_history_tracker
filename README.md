@@ -14,6 +14,7 @@ Overall approach
 * State of class can be updated only via methods
 
 * Design constructors such that the possibility of invalid object states is reduced
+  * E.g. Driver.ts marks name and logger as readonly fields. Thus, they can be set only once at construction and never modified 
 
 * Single responsibility principle
   * DrivingHistoryTracker - acts as high level co-ordinator, keeps record of drivers and performs reporting. Outsources construction of Driver objects to DriverFactory

@@ -8,7 +8,7 @@ test('Creates driver objects', () => {
     const f = new MockDriverFactory();
     const d = new DrivingHistoryTracker(f, l);
     const inputs = ['Driver K', 'Trip K 08:30 09:30 67'];
-    d.PopulateEntries(inputs);
+    d.populateEntries(inputs);
     const driver: MockDriver = d.entries.get('K') as MockDriver;
     expect(f.callCounter).toBe(1);
     expect(driver._registerTripCallCounter).toBe(1);
@@ -19,7 +19,7 @@ test('Creates driver objects', () => {
     const f = new MockDriverFactory();
     const d = new DrivingHistoryTracker(f, l);
     const inputs = ['Driver K', 'Trip K 08:30 09:31 67.6'];
-    d.PopulateEntries(inputs);
+    d.populateEntries(inputs);
     const driver: MockDriver = d.entries.get('K') as MockDriver;
     expect(driver._recentTripStart?.hours).toBe(8);
     expect(driver._recentTripEnd?.hours).toBe(9);
@@ -33,7 +33,7 @@ test('Creates driver objects', () => {
     const f = new MockDriverFactory();
     const d = new DrivingHistoryTracker(f, l);
     const inputs = ['Invalid'];
-    d.PopulateEntries(inputs);
+    d.populateEntries(inputs);
     expect(f.callCounter).toBe(0);
     expect(l.warningCalled).toBe(1);
   });
@@ -41,8 +41,8 @@ test('Creates driver objects', () => {
     const l = new MockLogger();
     const f = new MockDriverFactory();
     const d = new DrivingHistoryTracker(f, l);
-    d.PopulateEntries([]);
-    let result = d.GetDrivingSummary();
+    d.populateEntries([]);
+    let result = d.getDrivingSummary();
     expect(result.length).toBe(0);
   });
   test('Returns correct list for 1 driver', () => {
@@ -50,8 +50,8 @@ test('Creates driver objects', () => {
     const f = new MockDriverFactory();
     const d = new DrivingHistoryTracker(f, l);
     const inputs = ['Driver K', 'Trip K 08:30 09:31 67'];
-    d.PopulateEntries(inputs);
-    let result = d.GetDrivingSummary();
+    d.populateEntries(inputs);
+    let result = d.getDrivingSummary();
     expect(result.length).toBe(1);
   });
   test('Returns correct list for 2 drivers', () => {
@@ -59,7 +59,7 @@ test('Creates driver objects', () => {
     const f = new MockDriverFactory();
     const d = new DrivingHistoryTracker(f, l);
     const inputs = ['Driver K', 'Trip K 08:30 09:31 67', 'Driver H', 'Trip H 08:35 09:31 67','Trip H 08:35 09:31 67'];
-    d.PopulateEntries(inputs);
-    let result = d.GetDrivingSummary();
+    d.populateEntries(inputs);
+    let result = d.getDrivingSummary();
     expect(result.length).toBe(2);
   });

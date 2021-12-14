@@ -10,9 +10,9 @@ function main(argv: string[]) {
         new DriverFactory(),
         logger
     );
-    tracker.PopulateEntries(argv);
+    tracker.populateEntries(argv);
     console.log('----------------------------------');
-    tracker.GetDrivingSummary().forEach(x=> console.log(x.toString()));
+    tracker.getDrivingSummary().forEach(x=> console.log(x.toString()));
     console.log('----------------------------------');
 }
 
