@@ -11,7 +11,7 @@ export default class DriverReportGenerator {
             let totalDistance = 0;
             let totalTime = 0;
             trips.forEach(x=> {totalDistance +=x.getDistance(); totalTime += x.getDuration();});  
-            return [totalDistance, totalDistance * 60 / totalTime];
+            return [Math.round(totalDistance), Math.round(totalDistance * 60 / totalTime)];
         };           
         for (let [driver, trips] of record) {
             let s = calculateSummary(trips);

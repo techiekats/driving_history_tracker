@@ -34,5 +34,10 @@ test('returns correct average speed', () => {
     trip.push(new Trip(new Time(3,0), new Time(3, 30), 50));
     trip.push(new Trip(new Time(3,30), new Time(4, 0), 45));
     trip.push(new Trip(new Time(2,0), new Time(2, 59), 100));    
-    expect(d.getDrivingSummary(new Map().set('Name', trip))[0]).toBe(`Name: 175 miles @${175*60/120} mph`);
+    expect(d.getDrivingSummary(new Map().set('Name', trip))[0]).toBe(`Name: 175 miles @${Math.round(175*60/120)} mph`);
+});
+test('total miles and average speed are rounded', () => {
+    const d = new DriverReportGenerator();
+    let result = d.getDrivingSummary(new Map().set('Name', [new Trip(new Time(2,0), new Time(2, 59), 79.5)]));
+    expect(result[0]).toBe('Name: 80 miles @81 mph');
 });
