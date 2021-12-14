@@ -19,3 +19,5 @@ lib/types/Trip.js
 lib/types/DrivingHistoryReader.js
 lib/types/DrivingHistoryReader.js
 lib/types/Trip.js
+lib/__tests__/DriverReportGenerator.test.js
+lib/types/DriverReportGenerator.js

@@ -1,11 +1,11 @@
 export default class Time
 {
-    #_hours!: number;
+    readonly #_hours!: number;
     public get hours(): number {
         return this.#_hours;
     }
     
-    #_minutes!: number;
+    readonly #_minutes!: number;
     public get minutes(): number {
         return this.#_minutes;
     }

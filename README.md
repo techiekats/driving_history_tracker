@@ -6,25 +6,19 @@ Overall approach
 
 (*Solution assumes data is accurate hence performs minimal data validations and exception handling)
 
-* Code to interfaces, not concrete classes
-  * Reduces coupling between classes
-  * Allows unit testing by mocking dependencies and isolating functionality to be tested
-  * Allows dependency injection
+* Type description
+  * DrivingHistoryReader - Parses string input and creates structure to map a driver to corresponding trips
+  * DriverReportGenerator - Generates the report of driver trips. 
+    * The reader class and report generator classes are separate because each has a separate responsibility. It is very likely that based on the same datam one may want to create a different report. Hence, the two must not be coupled.
+    * The reader class returns an array of strings instead of any other data type. The caller (index.ts) should not have to understand any new type to display the report
+  * Trip - Basic construct that represents a trip
+  * Time - simple structure that represents time  
 
-* State of class can be updated only via methods
+* State of object can be updated only via methods
 
 * Design constructors such that the possibility of invalid object states is reduced
-  * E.g. Driver.ts marks name and logger as readonly fields. Thus, they can be set only once at construction and never modified
+  * E.g. Type.ts and Time.ts have read only fields because they need to be constructed just once
 
-* Singleton for DrivingHistoryTracker
-
-* Single responsibility principle
-  * DrivingHistoryTracker - acts as high level co-ordinator, keeps record of drivers and performs reporting. Outsources construction of Driver objects to DriverFactory
-  * Driver - keeps log of trips. Checks if trip should be registered or not, performs aggregations
-  * DriverFactory - Constructs Driver instances
-  * Time - simple structure that represents time
-  * Mock objects - Implement the interfaces used by their counterpart classes
-  * Logger - global logger object. Uses console.log here but could be used to send logs to a text file or database after formatting
 
 * Technology choice
   * TypeScript - static typing for C# with flexibility of JavaScript
