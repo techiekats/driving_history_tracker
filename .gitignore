@@ -15,3 +15,7 @@ lib/types/ILogger.js
 lib/types/Logger.js
 lib/types/Time.js
 package-lock.json
+lib/types/Trip.js
+lib/types/DrivingHistoryReader.js
+lib/types/DrivingHistoryReader.js
+lib/types/Trip.js

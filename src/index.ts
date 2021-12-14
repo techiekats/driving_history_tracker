@@ -1,4 +1,4 @@
-import DriverReportGenerator from "./types/Driver";
+import DriverReportGenerator from "./types/DriverReportGenerator";
 import DrivingHistoryReader from "./types/DrivingHistoryReader";
 
 main(process.argv);

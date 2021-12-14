@@ -1,5 +1,5 @@
 import exp from "constants";
-import DriverReportGenerator from "../types/Driver";
+import DriverReportGenerator from "../types/DriverReportGenerator";
 import Time from "../types/Time";
 import Trip from "../types/Trip";
 

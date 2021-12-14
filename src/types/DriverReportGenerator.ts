@@ -2,23 +2,6 @@ import ILogger from "./ILogger";
 import Trip from "./Trip";
 
 export default class DriverReportGenerator {
-
-    // getAverageSpeed(): number {
-    //     if (this.#_totalTime > 0) {
-    //         return this.#_totalDistance * 60/ this.#_totalTime;
-    //     }
-    //     else {
-    //         this.#_logger.logWarning("Average speed of 0 records returned as 0");
-    //         return 0;
-    //     }
-    // }
-  
-    // toString(): string {
-    //     if (this.#_totalDistance > 0) 
-    //         return `${this.#_name}: ${this.#_totalDistance} miles @ ${this.getAverageSpeed()} mph`;
-    //     else
-    //         return `${this.#_name}: 0 miles`
-    // }
     getDrivingSummary (record: Map<string, Trip[]>): string[] {
         const speedLowerBound = 5;
         const speedUpperBound = 100;
@@ -38,6 +21,6 @@ export default class DriverReportGenerator {
         //sort descending
         temp.sort((a,b)=> b.totalDistance - a.totalDistance);
         // result.sort((a,b) => b.getTotalDistanceTravelled() - a.getTotalDistanceTravelled());
-        return temp.map(x=> `${x.name}: ${x.totalDistance} miles @ ${x.speed} mph`);        
+        return temp.filter(t=> t.totalDistance > 0).map(x=> `${x.name}: ${x.totalDistance} miles @ ${x.speed} mph`);        
     }
 }

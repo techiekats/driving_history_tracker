@@ -7,7 +7,6 @@ export default class DrivingHistoryReader {
     public get entries(): Map<string, Trip[]> {
         return this.#_entries;
     }
-    readonly #_logger!: ILogger;
       
     populateEntries (records: string[]) : void {
         records.forEach(x=>{
@@ -22,7 +21,7 @@ export default class DrivingHistoryReader {
                 this.#_entries.get(driver)?.push(new Trip(new Time(parseInt(a), parseInt(b)), new Time(parseInt(y), parseInt(z)), parseFloat(dist))); 
             }
             else {
-                this.#_logger.logWarning("Could not parse input", x);
+                console.log(`Could not parse input: ${x}`);
             }
          });
     }
