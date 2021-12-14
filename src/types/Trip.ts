@@ -4,11 +4,12 @@ export default class Trip {
     readonly #start!: Time;
     readonly #end!: Time; 
     readonly #distance!: number;
-    #speed!: number;
+    readonly #speed!: number;
     constructor(start: Time, end:Time, distance: number) {
        this.#start = start;
        this.#end = end;
        this.#distance = distance;
+       this.#speed = this.#distance * 60 / (this.#end.getDifferenceInMinutes(this.#start));
     }
     getDistance(): number {
         return this.#distance;
@@ -16,11 +17,7 @@ export default class Trip {
     getDuration(): number {
         return this.#end.getDifferenceInMinutes(this.#start);
     }
-    speed():number {
-        //compute on demand and save it to variable. Because dependent variables are read-only, cached state can be used
-        if (!this.#speed) {
-            this.#speed = this.#distance * 60 / (this.#end.getDifferenceInMinutes(this.#start));
-        }
+    getSpeed():number {
         return this.#speed;
     };
 }

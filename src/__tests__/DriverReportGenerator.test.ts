@@ -34,8 +34,6 @@ test('returns correct average speed', () => {
     trip.push(new Trip(new Time(2,0), new Time(3, 0), 80))
     trip.push(new Trip(new Time(3,0), new Time(3, 30), 50));
     trip.push(new Trip(new Time(3,30), new Time(4, 0), 45));
-    trip.push(new Trip(new Time(2,0), new Time(2, 59), 100));
-    //TODO
-    expect(true).toEqual(false);
-    //expect(d.getDrivingSummary(new Map().set('Name', trip))).toBe(175*60/120);
+    trip.push(new Trip(new Time(2,0), new Time(2, 59), 100));    
+    expect(d.getDrivingSummary(new Map().set('Name', trip))[0]).toBe(`Name: 175 miles @ ${175*60/120} mph`);
 });

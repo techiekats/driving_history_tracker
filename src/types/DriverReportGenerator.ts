@@ -8,7 +8,7 @@ export default class DriverReportGenerator {
         type driverySummary = {name: string, totalDistance: number, speed:number};
         let temp: driverySummary[] = [];
         const calculateSummary = (s: Trip[]) => {            
-            let trips = s.filter(t => t.speed() >= speedLowerBound && t.speed() <= speedUpperBound);
+            let trips = s.filter(t => t.getSpeed() >= speedLowerBound && t.getSpeed() <= speedUpperBound);
             let totalDistance = 0;
             let totalTime = 0;
             trips.forEach(x=> {totalDistance +=x.getDistance(); totalTime += x.getDuration();});  
