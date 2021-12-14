@@ -1,4 +1,3 @@
-import ILogger from "./ILogger";
 import Trip from "./Trip";
 
 export default class DriverReportGenerator {
@@ -20,7 +19,9 @@ export default class DriverReportGenerator {
         }
         //sort descending
         temp.sort((a,b)=> b.totalDistance - a.totalDistance);
-        // result.sort((a,b) => b.getTotalDistanceTravelled() - a.getTotalDistanceTravelled());
-        return temp.filter(t=> t.totalDistance > 0).map(x=> `${x.name}: ${x.totalDistance} miles @ ${x.speed} mph`);        
+        const toString = (x:driverySummary) => {
+            return x.totalDistance > 0 ? `${x.name}: ${x.totalDistance} miles @${x.speed} mph` : `${x.name}: ${x.totalDistance} miles`;
+        };
+        return temp.map(x=> toString(x));        
     }
 }

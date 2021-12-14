@@ -1,4 +1,3 @@
-import ILogger from "./ILogger";
 import Time from "./Time";
 import Trip from "./Trip";
 
@@ -19,9 +18,6 @@ export default class DrivingHistoryReader {
                 let [a,b] = start.split(':');
                 let [y,z] = end.split(':');
                 this.#_entries.get(driver)?.push(new Trip(new Time(parseInt(a), parseInt(b)), new Time(parseInt(y), parseInt(z)), parseFloat(dist))); 
-            }
-            else {
-                console.log(`Could not parse input: ${x}`);
             }
          });
     }
